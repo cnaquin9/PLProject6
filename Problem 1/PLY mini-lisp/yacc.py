@@ -10,9 +10,6 @@ DEBUG = True
 
 name = {}
 
-global ast
-ast = []
-
 def cons(l):
     return [l[0]] + l[1]
 
@@ -64,11 +61,6 @@ def add(l):
     return sum(l)
 
 name['+'] = add
-
-def var_add(a, l):
-    return sum(a, l)
-
-name["+"] = var_add
 
 def minus(l):
     '''Unary minus'''
@@ -188,15 +180,6 @@ def p_call(p):
     'call : LPAREN SIMB items RPAREN'
     if DEBUG: print "Calling", p[2], "with", p[3] 
     p[0] = lisp_eval(p[2], p[3])
-
-def p_let(p):
-    '''let : LPAREN "let" LPAREN TEXT NUM RPAREN items RPAREN
-           | LPAREN "let" LPAREN TEXT NUM RPAREN RPAREN'''
-    if DEBUG: print("Letting", p[4], "=", p[5])
-    dict = {p[4]:p[5]}
-    p[0] = lisp_eval(p_item_call(p[7]))
-    dict = {}
-
 
 def p_atom_simbol(p):
     'atom : SIMB'
