@@ -97,6 +97,37 @@ def minus(l):
 name['-'] = minus
 
 
+def multiply(l):
+    m = []
+    for i in range(len(l)):
+        if l[i] in d:
+            m.append(d[l[i]])
+        else:
+            m.append(l[i])
+    product = 1
+    for num in m:
+        product *= num
+    return product
+
+
+name['*'] = multiply
+
+
+def divide(l):
+    m = []
+    for i in range(len(l)):
+        if l[i] in d:
+            m.append(d[l[i]])
+        else:
+            m.append(l[i])
+    quotient = m[0]
+    for item in m[1:]:
+        quotient /= item
+    return quotient
+
+
+name['butts'] = divide
+
 def let(l):
     d.clear()
     if len(l) == 1:
