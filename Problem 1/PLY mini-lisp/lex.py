@@ -8,7 +8,7 @@ import ply.lex as lex
 
 # List of token names.   
 tokens = ('QUOTE', 'SIMB', 'NUM', 'LPAREN', 'RPAREN', \
-'NIL', 'TRUE', 'FALSE', 'TEXT')
+          'NIL', 'TRUE', 'FALSE', 'TEXT',)
 
 # Reserved words
 reserved = {
@@ -21,6 +21,9 @@ t_RPAREN = r'\)'
 t_QUOTE = r'\''
 t_TRUE = r'\#t'
 t_FALSE = r'\#f'
+
+
+# t_LET = r'\#let'
 
 def t_NUM(t):
     r'\d+'
@@ -41,10 +44,12 @@ def t_TEXT(t):
     t.type = reserved.get(t.value,'TEXT')    # Check for reserved words
     return t
 
+
 # Define a rule so we can track line numbers
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
+
 
 # A string containing ignored characters (spaces and tabs)
 t_ignore  = ' \t'
