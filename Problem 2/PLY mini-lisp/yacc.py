@@ -147,11 +147,11 @@ name['print'] = _print
 #  Evaluation functions
 
 def lisp_eval(simb, items):
-    if simb in name:
-        return call(name[simb], eval_lists(items))
-    else:
-        if simb not in d:
-            d[simb] = items[0]
+    # if simb in name:
+    #    return call(name[simb], eval_lists(items))
+    # else:
+    #    if simb not in d:
+    #        d[simb] = items[0]
         return [simb] + items
 
 

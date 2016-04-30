@@ -6,4 +6,4 @@ ie: (butts 10 5)
 >>> 2
 >>> (let (a 5) (butts 45 a))
 
-Also, we did not attempt to finish problem 2.
+Also, we only managed to generate the AST for problem 2.
